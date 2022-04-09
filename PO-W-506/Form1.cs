@@ -1,6 +1,6 @@
 ﻿// Autor. mgr. inż Piotr Bilski
 // Programowanie Obiektowe
-
+ 
 using System.Drawing;
 using System.Windows.Forms;
 
