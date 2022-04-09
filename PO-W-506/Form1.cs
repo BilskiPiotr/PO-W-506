@@ -14,12 +14,23 @@ namespace PO_W_506
         }
     }
 
+    public struct Point3D
+    {
+        public Point3D(double x, double y, double z)
+        {
+            X = x; Y = y; Z = z;
+        }
+        public double X { get; set; }
+        public double Y { get; set; }
+        public double Z { get; set; }
+    }
+
     class Figura
     {
         // deklaracja pól publicznych klasy Figura
         Color _kolorWypelnienia;
         Color _kolorLiniiObrysowej;
-        Point _location;
+        protected Point3D _location;
         int _grubośćLiniiObrysowej;
 
         // deklaracja właściwości pozwalających na
@@ -40,17 +51,17 @@ namespace PO_W_506
             get { return _grubośćLiniiObrysowej; }
             set { _grubośćLiniiObrysowej = value; }
         }
-        public Point Location
+        public Point3D Location
         {
             get { return _location; }
             set { _location = value; }
         }
-        public int X
+        public double X
         {
             get { return _location.X; }
             set { _location.X = value; }
         }
-        public int Y
+        public double Y
         {
             get { return _location.Y; }
             set { _location.Y = value; }
@@ -61,14 +72,18 @@ namespace PO_W_506
     { }
     class Grafika3D : Figura
     {
-        int _Z;
+        public double Z
+        {
+            get { return _location.Z; }
+            set { _location.Z = value; }
+        }
     }
     class Statyczne : Grafika3D
     { }
     class Obrotowe : Grafika3D
     {
-        int kierunkiemObrotu;
-        float nachylenieOsi;
-        float szybkościąObrotu;
+        int _kierunkiemObrotu;
+        double _nachylenieOsi;
+        double _szybkośćObrotu;
     }
 }
