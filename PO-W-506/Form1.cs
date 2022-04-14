@@ -2,18 +2,14 @@
 // Programowanie Obiektowe
  
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
+
+
 
 namespace PO_W_506
 {
-    public partial class Form1 : Form
-    {
-        public Form1()
-        {
-            InitializeComponent();
-        }
-    }
-
+    // ======== 1a ========
     public struct Point3D
     {
         public Point3D(double x, double y, double z)
@@ -25,6 +21,7 @@ namespace PO_W_506
         public double Z { get; set; }
     }
 
+    // ======== 1 ========
     class Figura
     {
         // deklaracja pól publicznych klasy Figura
@@ -68,6 +65,7 @@ namespace PO_W_506
         }
     }
 
+    // ======== 2 ========
     class Grafika2D : Figura
     { }
     class Grafika3D : Figura
@@ -78,6 +76,8 @@ namespace PO_W_506
             set { _location.Z = value; }
         }
     }
+
+    // ======== 3 ========
     class Statyczne : Grafika3D
     { }
     class Obrotowe : Grafika3D
@@ -85,5 +85,23 @@ namespace PO_W_506
         int _kierunkiemObrotu;
         double _nachylenieOsi;
         double _szybkośćObrotu;
+    }
+
+    // ======== 4 ========
+    class Walec : Obrotowe
+    {
+        double _wysokosść;
+        double _promień;
+    }
+    
+    // ======== 5 ========
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+            Walec walec = new Walec();
+            Thread.Sleep(1000000000);
+        }
     }
 }
